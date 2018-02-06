@@ -11,10 +11,21 @@ User story: As a nonprofit entity which is dependant on donations, I want to col
 with information about who is donating and how much money they are donating, from philanthropists who come to our
 web site, so that our nonprofit entity can collect funds which will allow us to continue to do good work.
 
+As a philanthropist who is new to the client site I want to make a donation so that I feel good about helping the
+nonprofit's mission.
+
+As a philanthropist who has donated before I want to make another donation to the nonprofit.
+
+As the nonprofit client I want to use stripe to collect donations so that I am familiar with the technology being
+used.
+
+As the nonprofit client I want to collect information about the philanthropist so that I can send thanks and keep
+good records for an audit.
+
 # Notes
 
  - Started a repository https://github.com/rjacobsen0/NonprofitDonationForm.git for this work. I've been using SVN,
- not git, so I have a bit of learning to do to complete this. Yet another new environment to pick up. :)
+ not git, so I have a bit of learning to do to complete this. A new environment to pick up. :)
 
  - Next, install drupal 8 on my Windows 10 machine based on instructions on 
  https://www.drupal.org/docs/develop/local-server-setup/windows-development-environment/installing-drupal-on-windows-for
@@ -22,8 +33,8 @@ web site, so that our nonprofit entity can collect funds which will allow us to 
  - Got XAMPP from https://www.apachefriends.org/index.html (note start control panel using \xampp\xampp-control.exe)
  but already had IIS installed on port 80. Had a conflict. Reconfigured Apache to listen on port 8080. This should be
  ok; people set up dev ports all the time. But I don't find this acceptable because it could lead to conflict between
- the two web servers in the future. Since I don't want to do that kind of troubleshooting I prefer to run Apache on port
- 80. I uninstalled IIS. But port 80 is still blocked by something! After much searching around, I found this page helpful
+ the two web servers in the future. Since I don't want to do that kind of troubleshooting I prefer to run Apache on port 80.
+ I uninstalled IIS. But port 80 is still blocked by something! After much searching around, I found this page helpful
  https://www.sitepoint.com/unblock-port-80-on-windows-run-apache/ It helped me find out that SSRS was listening on
  port 80. I stopped the SSRS service and Apache started up. I realize this is not a secure setup because MariaDB root
  has no password and there are other security holes. If I were going to run this in production I would not use this
