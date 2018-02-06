@@ -62,9 +62,10 @@ Is there a maximum donation allowed? Minimum?
  port 80. I stopped the SSRS service and Apache started up. I realize this is not a secure setup because MariaDB root
  has no password and there are other security holes. If I were going to run this in production I would not use this
  package.
+ - includes PHP 7.2.1
 
  - Following instructions on https://www.drupal.org/docs/8/install/step-1-get-the-code downloaded and unpackaged Drupal.
  But I ended up using bitnami. This package already knows how to set up Drupal on top of XAMPP. I have limited time for
  setup. People who make configuration easy should be celebrated!
 
- - 
+ - Installed composer https://getcomposer.org/doc/00-intro.md#installation-windows, then used it to 
