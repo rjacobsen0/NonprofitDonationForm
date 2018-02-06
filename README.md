@@ -17,10 +17,33 @@ nonprofit's mission.
 As a philanthropist who has donated before I want to make another donation to the nonprofit.
 
 As the nonprofit client I want to use stripe to collect donations so that I am familiar with the technology being
-used.
+used. (Add benefits of using stripe here.)
 
 As the nonprofit client I want to collect information about the philanthropist so that I can send thanks and keep
 good records for an audit.
+
+Questions to consider:
+
+Does a philanthropist have to log in before donating? Could be a barrier to donation. Can we collect account information
+upon donation and auto-create an account? Yes. No-password accounts. Not really an account but only an identifier like
+name of the philanthropist.
+
+How do we protect the privacy of philanthropists? We don't want a list of names and PII, but we would want to match
+recognized philanthropists with existing donors.
+
+The form inputs will be guided by the requirements of Stripe. If there is a lot of PII (Personally Identifiable
+Information), we will ask the user to create a password and make it a real secure account before a new philanthropist
+donates.
+
+Can we de-dup on the fly when a donor returns without logging in?
+
+As a new philanthropist can I create a new account before making a donation or is making a donation the only way to
+create an account?
+
+What characters and how long should a user name be? We should suggest a user name based on the philanthropist's name,
+one that doesn't already exist because user names must be unique.
+
+Is there a maximum donation allowed? Minimum?
 
 # Notes
 
