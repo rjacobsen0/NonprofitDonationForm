@@ -62,10 +62,29 @@ Is there a maximum donation allowed? Minimum?
  port 80. I stopped the SSRS service and Apache started up. I realize this is not a secure setup because MariaDB root
  has no password and there are other security holes. If I were going to run this in production I would not use this
  package.
- - includes PHP 7.2.1
+    + includes PHP 7.2.1
 
  - Following instructions on https://www.drupal.org/docs/8/install/step-1-get-the-code downloaded and unpackaged Drupal.
  But I ended up using bitnami. This package already knows how to set up Drupal on top of XAMPP. I have limited time for
  setup. People who make configuration easy should be celebrated!
 
- - Installed composer https://getcomposer.org/doc/00-intro.md#installation-windows, then used it to 
+ - Installed an evaluation copy of JetBrains' PHPStorm.
+
+ - Went here https://www.drupal.org/project/project_module and searched for Stripe. Found 34 matching modules. Chose
+ the one with the simplest name 'Stripe' and downloaded beta 8.x-1.0-beta. It's not obvious where to put it. I put it
+ on E:\stripe temporarily. Documentation is here https://stripe.com/docs/api/php#intro but there's nothing about
+ installation.
+
+ - Cloned repository D8HWexample https://www.drupal.org/docs/8/creating-custom-modules/a-hello-world-custom-page-module
+ which I found a link to on this page. Still trying to get a foothold. But I couldn't get it to run. It appears that
+ the directory structure needs to be a certain way and mine is not, so I looked at Apache documentation on this page
+ https://httpd.apache.org/docs/trunk/urlmapping.html and moved the D8HWexample into C:\Bitnami\drupal-8.4.4-0\apps\drupal\D8HWexample
+ but the requested page could not be found when I went to http://localhost:81/drupal/D8HWexample. So I'm still not
+ understanding the necessary structure and configuration.
+
+ - Got on slack Drupal support group. Heard drupal console will generate code, for example for a 'hello world' custom
+ page module. Considering seeing where it puts generated code and if that code will actually run in a browser. Since
+ I'm having trouble with this, I'm also considering backing up a few steps and installing using composer instead of
+ the bitnami drupal package.
+
+  - Installed composer https://getcomposer.org/doc/00-intro.md#installation-windows.
