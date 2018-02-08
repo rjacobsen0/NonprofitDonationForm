@@ -64,16 +64,17 @@ Is there a maximum donation allowed? Minimum?
  package.
     + includes PHP 7.2.1
 
- - Following instructions on https://www.drupal.org/docs/8/install/step-1-get-the-code downloaded and unpackaged Drupal.
- But I ended up using bitnami. This package already knows how to set up Drupal on top of XAMPP. I have limited time for
- setup. People who make configuration easy should be celebrated!
-
  - Installed an evaluation copy of JetBrains' PHPStorm.
 
  - Went here https://www.drupal.org/project/project_module and searched for Stripe. Found 34 matching modules. Chose
  the one with the simplest name 'Stripe' and downloaded beta 8.x-1.0-beta. It's not obvious where to put it. I put it
  on E:\stripe temporarily. Documentation is here https://stripe.com/docs/api/php#intro but there's nothing about
- installation.
+ installation. I'll look for more documentation later when I'm ready for it.
+
+Wrong turn begins here:
+ - Following instructions on https://www.drupal.org/docs/8/install/step-1-get-the-code downloaded and unpackaged Drupal.
+ But I ended up using bitnami. This package already knows how to set up Drupal on top of XAMPP. I have limited time for
+ setup. People who make configuration easy should be celebrated!
 
  - Cloned repository D8HWexample https://www.drupal.org/docs/8/creating-custom-modules/a-hello-world-custom-page-module
  which I found a link to on this page. Still trying to get a foothold. But I couldn't get it to run. It appears that
@@ -85,6 +86,36 @@ Is there a maximum donation allowed? Minimum?
  - Got on slack Drupal support group. Heard drupal console will generate code, for example for a 'hello world' custom
  page module. Considering seeing where it puts generated code and if that code will actually run in a browser. Since
  I'm having trouble with this, I'm also considering backing up a few steps and installing using composer instead of
- the bitnami drupal package.
+ the bitnami package. https://community.bitnami.com/t/can-you-host-multiple-and-separate-drupal-sites-locally/7511
+ indicates that other people have trouble with this distribution as well. That's the clincher. Time to backtrack and
+ try another installation.
+
+  - Uninstalled bitnami drupal stack.
+Wrong turn ends here.
 
   - Installed composer https://getcomposer.org/doc/00-intro.md#installation-windows.
+
+  - Went to https://www.drupal.org/docs/user_guide/en/install-composer.html. Followed the instructions and installed 
+  Drupal core in C:\xampp\htdocs\drupal (htdocs is Apache's web root directory) and installed dependancies using
+  composer. So glad I finally got to good documentation! It's crazy that there are two complete sets of Drupal
+  documentation!
+
+  - In a web browser went to http://localhost/drupal (More success! Yay!) and went through the setup. Got two warnings
+    + PHP OPCODE CACHING Not enabled PHP OPcode caching can improve your site's performance considerably. It is highly
+    recommended to have OPcache installed on your server.
+    + LIMITED DATE RANGE Your PHP installation has a limited date range. You are running on a system where PHP is
+    compiled or limited to using 32-bit integers. This will limit the range of dates and timestamps to the years
+    1901-2038. Read about the limitations of 32-bit PHP.
+    + I'm continuing anyway for now, but I may want to revisit this later.
+
+  - Set up database. Database name: donationDB
+                      Database username: root
+                      Host: localhost
+                      Port number: 3306
+                      Table name prefix: donation
+  
+  - Configure Drupal site. Site name: Rebecca's First Drupal Site
+                            Site email: rjacobsen0@gmail.com
+                            Maintenance account Username: rjacobsen0
+                            Default Country: United States
+                            Default time zone: Los Angeles
