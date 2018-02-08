@@ -134,4 +134,5 @@ Wrong turn ends here.
   - Found a good piece of documentation that will help me create a module. https://www.drupal.org/docs/8/creating-custom-modules/getting-started-background-prerequisites-drupal-8.
   
   - Everything was going well, until I got to the instruction at the bottom of this page
-  https://www.drupal.org/docs/8/creating-custom-modules/add-a-routing-file to go to the front page of the site
+  https://www.drupal.org/docs/8/creating-custom-modules/add-a-routing-file to go to the front page of the site. Had
+  to do some troubleshooting. Realized that the routing.yml contains the namespace of the controller, not the path.
