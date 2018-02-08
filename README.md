@@ -119,3 +119,9 @@ Wrong turn ends here.
                             Maintenance account Username: rjacobsen0
                             Default Country: United States
                             Default time zone: Los Angeles
+
+  - Installing the Stripe module using instructions on https://www.drupal.org/docs/user_guide/en/config-install.html
+  using the administrative interface. Oh, um, nevermind. Since Stripe is not on the list I have to find a way to
+  install it in the list before installing it in the site. Found it! Adding a module docs are here
+  https://www.drupal.org/docs/user_guide/en/extend-module-install.html. No longer need the one I downloaded earlier.
+
