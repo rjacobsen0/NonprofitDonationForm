@@ -45,7 +45,7 @@ one that doesn't already exist because user names must be unique.
 
 Is there a maximum donation allowed? Minimum?
 
-# Notes
+# Installation Notes
 
  - Started a repository https://github.com/rjacobsen0/NonprofitDonationForm.git for this work. I've been using SVN,
  not git, so I have a bit of learning to do to complete this. A new environment to pick up. :)
@@ -91,6 +91,10 @@ Wrong turn begins here:
  try another installation.
 
   - Uninstalled bitnami drupal stack.
+
+  - This little detour shows how a package can have good intentions (to make life easier on new Drupal users) but it
+  can go wrong if something is too far away from standard or needs too much education to use it or is too restrictive.
+
 Wrong turn ends here.
 
   - Installed composer https://getcomposer.org/doc/00-intro.md#installation-windows.
@@ -125,3 +129,9 @@ Wrong turn ends here.
   install it in the list before installing it in the site. Found it! Adding a module docs are here
   https://www.drupal.org/docs/user_guide/en/extend-module-install.html. No longer need the one I downloaded earlier.
 
+# Module Creation Notes
+
+  - Found a good piece of documentation that will help me create a module. https://www.drupal.org/docs/8/creating-custom-modules/getting-started-background-prerequisites-drupal-8.
+  
+  - Everything was going well, until I got to the instruction at the bottom of this page
+  https://www.drupal.org/docs/8/creating-custom-modules/add-a-routing-file to go to the front page of the site
