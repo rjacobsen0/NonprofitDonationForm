@@ -1,0 +1,7 @@
+nonprofit_donation_form.content:
+  path: '/nonprofit_donation_form'
+  defaults:
+    _controller: '\Drupal\nonprofit_donation_form\Controller\DonationFormController::content'
+    _title: 'Nonprofit Donation Form'
+  requirements:
+    _permission: 'access content'

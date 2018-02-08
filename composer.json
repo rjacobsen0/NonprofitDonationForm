@@ -1,0 +1,15 @@
+{
+    "name": "drupal/nonprofit_donation_form",
+    "description": "Nonprofit Donation Form is a custom page module for accepting donations from philanthropists.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/nonprofit_donation_form",
+    "authors": [{
+        "name": "Rebecca Jacobsen",
+        "email": "rjacobsen0@gmail.com",
+        "role": "Maintainer"
+    }],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/stripe": "~2.8"
+    }
+}
