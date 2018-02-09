@@ -35,7 +35,7 @@ The form inputs will be guided by the requirements of Stripe. If there is a lot 
 Information), we will ask the user to create a password and make it a real secure account before a new philanthropist
 donates.
 
-Can we de-dup on the fly when a donor returns without logging in?
+Can we de-dup on the fly when a donor returns without logging in? Perhaps we force a login before donating.
 
 As a new philanthropist can I create a new account before making a donation or is making a donation the only way to
 create an account?
@@ -44,6 +44,16 @@ What characters and how long should a user name be? We should suggest a user nam
 one that doesn't already exist because user names must be unique.
 
 Is there a maximum donation allowed? Minimum?
+
+Does the amount have to be in US dollars? Yes.
+
+Are there restrictions on the donor's name? Should it be unique? What's the maximum length?
+
+Does the credit card require billing address? Perhaps we should get the donor's address.
+
+Does the donor get an e-mail confirmation of their donation? If so we need email address.
+
+Couldn't we fill in the user's name for them if they're logged in?
 
 # Installation Notes
 
@@ -112,17 +122,19 @@ Wrong turn ends here.
     1901-2038. Read about the limitations of 32-bit PHP.
     + I'm continuing anyway for now, but I may want to revisit this later.
 
-  - Set up database. Database name: donationDB
-                      Database username: root
-                      Host: localhost
-                      Port number: 3306
-                      Table name prefix: donation
+  - Set up database. 
+    + Database name: donationDB
+    + Database username: root
+    + Host: localhost
+    + Port number: 3306
+    + Table name prefix: donation
   
-  - Configure Drupal site. Site name: Rebecca's First Drupal Site
-                            Site email: rjacobsen0@gmail.com
-                            Maintenance account Username: rjacobsen0
-                            Default Country: United States
-                            Default time zone: Los Angeles
+  - Configure Drupal site. 
+    + Site name: Rebecca's First Drupal Site
+    + Site email: rjacobsen0@gmail.com
+    + Maintenance account Username: rjacobsen0
+    + Default Country: United States
+    + Default time zone: Los Angeles
 
   - Installing the Stripe module using instructions on https://www.drupal.org/docs/user_guide/en/config-install.html
   using the administrative interface. Oh, um, nevermind. Since Stripe is not on the list I have to find a way to
@@ -136,3 +148,6 @@ Wrong turn ends here.
   - Everything was going well, until I got to the instruction at the bottom of this page
   https://www.drupal.org/docs/8/creating-custom-modules/add-a-routing-file to go to the front page of the site. Had
   to do some troubleshooting. Realized that the routing.yml contains the namespace of the controller, not the path.
+
+  - On ASP.NET MVC all routes go through a controller, so I didn't realize right away that in Drupal a form does not
+  need a controller.
