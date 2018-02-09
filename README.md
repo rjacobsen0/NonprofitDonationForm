@@ -153,8 +153,8 @@ Wrong turn ends here.
   need a controller.
 
   - Possibilities for how to integrate Stripe:
-    + Use Checkout (go directly to js somehow)
     + stripe_webform (someone else has done work on this, but it has poor documentation)
+    + Use Checkout (go directly to form and script via a controller outputting markup)
     + Stripe.js and Elements
 
   - I'm going to first try stripe_webform and see what that's like. Install first, then read the code to see if I

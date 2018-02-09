@@ -4,6 +4,8 @@ namespace Drupal\nonprofit_donation_form\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Stripe\Stripe;
+use Drupal\Stripe\Charge;
 
 class DonationForm extends FormBase {
 
@@ -34,6 +36,26 @@ class DonationForm extends FormBase {
             '#title' => t('Donation Amount:'),
             '#required' => TRUE,
         );
+
+        $form['stipe_button'] = array(
+            '#type' => 'markup',
+            '#markup' => $this->t('
+      
+
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-amount="999"
+    data-name="Stripe.com"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+
+
+      '));
+      
         $form['actions']['#type'] = 'actions';
         $form['actions']['submit'] = array(
             '#type' => 'submit',
@@ -67,6 +89,22 @@ class DonationForm extends FormBase {
             // Would like to use a non-deprecated message call. This one doesn't work:
             // $this->messenger->addMessage("Thank you for donating!" . $key . ': ' . $value);
         }
+
+        // Set your secret key: remember to change this to your live secret key in production
+        // See your keys here: https://dashboard.stripe.com/account/apikeys
+        // \Stripe\Stripe::setApiKey("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+
+        // Token is created using Checkout or Elements!
+        // Get the payment token ID submitted by the form:
+        $token = $_POST['stripeToken'];
+
+        // Charge the user's card:
+        // $charge = \Stripe\Charge::create(array(
+        // "amount" => 999,
+        // "currency" => "usd",
+        // "description" => "Example charge",
+        // "source" => $token,
+        // ));
     }
 
     /**
