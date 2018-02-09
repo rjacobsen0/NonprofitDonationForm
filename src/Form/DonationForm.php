@@ -30,7 +30,7 @@ class DonationForm extends FormBase {
         );
         */
         $form['amount'] = array(
-            '#type' => 'textfield',
+            '#type' => 'number',
             '#title' => t('Donation Amount:'),
             '#required' => TRUE,
         );
