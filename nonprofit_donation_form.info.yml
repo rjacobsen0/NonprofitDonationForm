@@ -1,4 +1,4 @@
-name: Nonprofit Donation Form Module
+name: Nonprofit Donation Form
 description: Creates a page showing a form which accepts credit card payments and info about the donor.
 package: Custom
 
