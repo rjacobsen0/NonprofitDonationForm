@@ -151,3 +151,15 @@ Wrong turn ends here.
 
   - On ASP.NET MVC all routes go through a controller, so I didn't realize right away that in Drupal a form does not
   need a controller.
+
+  - Possibilities for how to integrate Stripe:
+    + Use Checkout (go directly to js somehow)
+    + stripe_webform (someone else has done work on this, but it has poor documentation)
+    + Stripe.js and Elements
+
+  - I'm going to first try stripe_webform and see what that's like. Install first, then read the code to see if I
+  can figure out how to call it. Also need to install Webform and Contribute. Was worried that it would be one
+  dependancy after another but two (Webform and Contribute) is not too bad. While this looks promising it is
+  un-usable for now. Needs to be documented. Rolling back.
+
+  - 
