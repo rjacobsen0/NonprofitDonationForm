@@ -1,7 +1,7 @@
 alert('Got to the start of the JS file!');
 // Create a Stripe client
 var stripe = Stripe('pk_test_lVsNjrGaAepXPhWNBmkLvy3W');
-alert('Got to where we create stripe and elements objects!');
+alert('Got to where we create stripe object!');
 // Create an instance of Elements
 var elements = stripe.elements();
 
