@@ -8,3 +8,5 @@ nonprofit_donation_form_library:
     js/nonprofit_donation_form.js: { preprocess: false }
     dependencies:
       - core/jquery
+      - core/jquery.once
+      - core/drupal
