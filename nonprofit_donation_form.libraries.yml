@@ -1,0 +1,10 @@
+nonprofit_donation_form_library:
+  header: true
+  version: 1.x
+  css:
+    theme:
+      css/nonprofit_donation_form.css: {}
+  js:
+    js/nonprofit_donation_form.js: { preprocess: false }
+    dependencies:
+      - core/jquery

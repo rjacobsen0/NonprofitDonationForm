@@ -4,10 +4,13 @@ namespace Drupal\nonprofit_donation_form\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Stripe\Stripe;
-use Drupal\Stripe\Charge;
+use Stripe\Stripe;
 
 class DonationForm extends FormBase {
+
+    function nonprofit_donation_form_preprocess_node__page(array &$variables) {
+        $variables['#attached']['library'][] = 'nonprofit_donation_form/nonprofit_donation_form';
+    }
 
     /**
      * @param array $form
@@ -33,35 +36,35 @@ class DonationForm extends FormBase {
         */
         $form['amount'] = array(
             '#type' => 'number',
-            '#title' => t('Donation Amount:'),
+            '#title' => t('Donation Amount in US dollars:'),
             '#required' => TRUE,
         );
 
-        $form['stipe_button'] = array(
+        $form['stripe_button'] = array(
             '#type' => 'markup',
             '#markup' => $this->t('
-      
+                    <script src="https://js.stripe.com/v3/"></script>
+                    
+                    <label for="card-element">
+                      Credit or debit card:
+                    </label>
+                    <div id="card-element">
+                      <!-- a Stripe Element will be inserted here. -->
+                    </div>
+                    
+                    <!-- Used to display form errors -->
+                    <div id="card-errors" role="alert"></div>
+            '),
+            '#attached' => array('library' => array('stripe/stripe', 'stripe/stripe.js', 'nonprofit_donation_form/nonprofit_donation_form_library'))
+        );
 
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-amount="999"
-    data-name="Stripe.com"
-    data-description="Example charge"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto"
-    data-zip-code="true">
-  </script>
-
-
-      '));
-      
         $form['actions']['#type'] = 'actions';
         $form['actions']['submit'] = array(
             '#type' => 'submit',
             '#value' => $this->t('Donate'),
             '#button_type' => 'primary',
         );
+
         return $form;
     }
 
@@ -82,6 +85,8 @@ class DonationForm extends FormBase {
      * @param FormStateInterface $form_state
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
+        // commerce_stripe_load_library();
+
         // drupal_set_message($this->t('@can_name ,Your application is being submitted!', array('@can_name' => $form_state->getValue('candidate_name'))));
         drupal_set_message("Thank you for donating!");
         foreach ($form_state->getValues() as $key => $value) {
@@ -92,19 +97,24 @@ class DonationForm extends FormBase {
 
         // Set your secret key: remember to change this to your live secret key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
-        // \Stripe\Stripe::setApiKey("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+        // if (module_exists('Stripe') && function_exists('setApiKey')) {
+        //     Stripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        // }
 
         // Token is created using Checkout or Elements!
         // Get the payment token ID submitted by the form:
         $token = $_POST['stripeToken'];
+        drupal_set_message($token);
 
         // Charge the user's card:
-        // $charge = \Stripe\Charge::create(array(
-        // "amount" => 999,
-        // "currency" => "usd",
-        // "description" => "Example charge",
-        // "source" => $token,
-        // ));
+//         if (module_exists('Charge') && function_exists('create')) {
+//             $charge = Charge::create(array(
+//                 "amount" => 999,
+//                 "currency" => "usd",
+//                 "description" => "Example charge",
+//                 "source" => $token,
+//             ));
+//         }
     }
 
     /**

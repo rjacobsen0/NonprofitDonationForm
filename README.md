@@ -158,8 +158,27 @@ Wrong turn ends here.
     + Stripe.js and Elements
 
   - I'm going to first try stripe_webform and see what that's like. Install first, then read the code to see if I
-  can figure out how to call it. Also need to install Webform and Contribute. Was worried that it would be one
-  dependancy after another but two (Webform and Contribute) is not too bad. While this looks promising it is
-  un-usable for now. Needs to be documented. Rolling back.
+  can figure out how to call it. Also need to install the dependencies Webform and Contribute. Was worried that
+  it would be one dependancy after another but two (Webform and Contribute) is not too bad. While this looks
+  promising it is un-usable for now. Needs to be documented. Rolling back.
 
-  - 
+  - I'm having more success with Stripe's https://stripe.com/docs/quickstart guide on the frontend.
+  
+  - I added code for the server-side to get the payment and I'm getting errors. Seems that the Stripe library
+  is multiply defined or not defined. Can't resolve the needed symbols like Stripe\Stripe::setApiKey() and
+  Stripe\Charge::create(). Installed with composer, but still no luck. Commenting it out and putting this on
+  ice for a while.
+      + composer require drupal/stripe
+  
+  - Now I want to add javascript of my own, plus the javascript from stripe. Found documentation:
+    + https://www.drupal.org/docs/8/creating-custom-modules/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-module
+    + https://www.drupal.org/forum/support/module-development-and-code-questions/2016-08-08/adding-js-to-the-block-through-module
+    + https://drupal.stackexchange.com/questions/223260/whats-the-correct-way-to-include-javascript-dependencies-into-modules
+    + https://www.drupal.org/node/2605130
+    + https://atendesigngroup.com/blog/mastering-drupal-8%E2%80%99s-libraries-api
+  - It's not cool to pull the stipe.js file into this module because it prevents independent upgrades and is against
+  the Drupal licensing/contrib guidelines regarding third party code, so I will include it from it's current location
+  if possible. Working on that now.
+  
+  
+  
