@@ -5,7 +5,8 @@ package: Custom
 type: module
 core: 8.x
 
-dependencies:
-  - drupal:stripe
+libraries:
+  - Stripe/global
+  - nonprofit_donation_form/nonprofit_donation_form_library
 
 configure: nonprofit_donation_form.settings

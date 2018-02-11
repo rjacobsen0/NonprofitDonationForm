@@ -8,8 +8,5 @@
         "email": "rjacobsen0@gmail.com",
         "role": "Maintainer"
     }],
-    "minimum-stability": "dev",
-    "require": {
-        "drupal/stripe": "~2.8"
-    }
+    "minimum-stability": "dev"
 }
