@@ -13,12 +13,38 @@ use Drupal\Core\Form\FormStateInterface;
 
 class DonationForm extends FormBase {
 
+
     /**
      * @param array $form
      * @param FormStateInterface $form_state
      * @return array
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
+        $form['javascript_loader'] = array(
+            '#theme' => 'my_template',
+            '#test_var' => $this->t('Test Value'),
+        );
+
+        $httpHost = $_SERVER['HTTP_HOST'];
+        // nonprofit_donation_form_page_attachments($form);
+        /*
+        $phpSelf = $_SERVER['PHP_SELF'];
+        $serverName = $_SERVER['SERVER_NAME'];
+        $httpReferer = $_SERVER['HTTP_REFERER'];
+        $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+        $scriptName = $_SERVER['SCRIPT_NAME'];
+
+        $form['server_info'] = array(
+            '#type' => 'markup',
+            '#markup' => $this->t('php_self = ' . $phpSelf . '<br />' .
+                'serverName = ' . $serverName . '<br />' .
+                'httpHost = ' . $httpHost . '<br />' .
+                'httpReferer = ' . $httpReferer . '<br />' .
+                'httpUserAgent = ' . $httpUserAgent . '<br />' .
+                'scriptName = ' . $scriptName . '<br />'
+            ));
+        */
+
         $form['donor_name'] = array(
             '#type' => 'textfield',
             '#title' => t('Your Name:'),
@@ -86,7 +112,7 @@ class DonationForm extends FormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
 
-        // commerce_stripe_load_library();
+        // nonprofit_donation_form_page_attachments($form);
 
         // drupal_set_message($this->t('@can_name ,Your application is being submitted!', array('@can_name' => $form_state->getValue('candidate_name'))));
         drupal_set_message("Thank you for donating!");

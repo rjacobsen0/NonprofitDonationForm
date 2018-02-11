@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Contains stripe.module.
+ */
+
+function nonprofit_donation_form_twig_theme($existing, $type, $theme, $path) {
+    return [
+        'my_template' => [
+            'variables' => ['test_var' => NULL],
+        ],
+    ];
+}
