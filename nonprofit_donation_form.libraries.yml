@@ -5,8 +5,11 @@ nonprofit_donation_form_library:
     theme:
       css/nonprofit_donation_form.css: {}
   js:
+    # this only works if stripe is in its standard location relative to nonprofit_donation_form
+    ../contrib/stripe/js/stripe.js: { preprocess: false }
     js/nonprofit_donation_form.js: { preprocess: false }
+    https://js.stripe.com/v3: { type: external }
     dependencies:
       - core/jquery
-      - core/jquery.once
       - core/drupal
+      - core/jquery.once

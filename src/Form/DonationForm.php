@@ -10,9 +10,9 @@ namespace Drupal\nonprofit_donation_form\Form;
 use Drupal\Core\Form\drupal_set_message;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Stripe\Stripe;
 
 class DonationForm extends FormBase {
+
 
     /**
      * @param array $form
@@ -20,6 +20,31 @@ class DonationForm extends FormBase {
      * @return array
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
+        $form['javascript_loader'] = array(
+            '#theme' => 'my_template',
+            '#test_var' => $this->t('Test Value'),
+        );
+
+        $httpHost = $_SERVER['HTTP_HOST'];
+        // nonprofit_donation_form_page_attachments($form);
+        /*
+        $phpSelf = $_SERVER['PHP_SELF'];
+        $serverName = $_SERVER['SERVER_NAME'];
+        $httpReferer = $_SERVER['HTTP_REFERER'];
+        $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+        $scriptName = $_SERVER['SCRIPT_NAME'];
+
+        $form['server_info'] = array(
+            '#type' => 'markup',
+            '#markup' => $this->t('php_self = ' . $phpSelf . '<br />' .
+                'serverName = ' . $serverName . '<br />' .
+                'httpHost = ' . $httpHost . '<br />' .
+                'httpReferer = ' . $httpReferer . '<br />' .
+                'httpUserAgent = ' . $httpUserAgent . '<br />' .
+                'scriptName = ' . $scriptName . '<br />'
+            ));
+        */
+
         $form['donor_name'] = array(
             '#type' => 'textfield',
             '#title' => t('Your Name:'),
@@ -45,17 +70,16 @@ class DonationForm extends FormBase {
         $form['stripe_button'] = array(
             '#type' => 'markup',
             '#markup' => $this->t('
-                    <script src="https://js.stripe.com/v3/"></script>
-                    
+                    <div class="form-row">
                     <label for="card-element">
-                      Credit or debit card:
+                      Credit or debit card
                     </label>
                     <div id="card-element">
                       <!-- a Stripe Element will be inserted here. -->
                     </div>
-                    
                     <!-- Used to display form errors -->
                     <div id="card-errors" role="alert"></div>
+  </div>
             '),
             '#attached' => array('library' => array('stripe/stripe', 'stripe/stripe.js', 'nonprofit_donation_form/nonprofit_donation_form_library'))
         );
@@ -87,8 +111,8 @@ class DonationForm extends FormBase {
      * @param FormStateInterface $form_state
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
-/*
-        // commerce_stripe_load_library();
+
+        // nonprofit_donation_form_page_attachments($form);
 
         // drupal_set_message($this->t('@can_name ,Your application is being submitted!', array('@can_name' => $form_state->getValue('candidate_name'))));
         drupal_set_message("Thank you for donating!");
@@ -97,28 +121,28 @@ class DonationForm extends FormBase {
             // Would like to use a non-deprecated message call. This one doesn't work:
             // $this->messenger->addMessage("Thank you for donating!" . $key . ': ' . $value);
         }
+        /*
+                // Set your secret key: remember to change this to your live secret key in production
+                // See your keys here: https://dashboard.stripe.com/account/apikeys
+                if (module_exists('Stripe') && function_exists('setApiKey')) {
+                    Stripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+                }
 
-        // Set your secret key: remember to change this to your live secret key in production
-        // See your keys here: https://dashboard.stripe.com/account/apikeys
-        if (module_exists('Stripe') && function_exists('setApiKey')) {
-            Stripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
-        }
+                // Token is created using Checkout or Elements!
+                // Get the payment token ID submitted by the form:
+                $token = $_POST['stripeToken'];
+                drupal_set_message($token);
 
-        // Token is created using Checkout or Elements!
-        // Get the payment token ID submitted by the form:
-        $token = $_POST['stripeToken'];
-        drupal_set_message($token);
-
-        // Charge the user's card:
-//         if (module_exists('Charge') && function_exists('create')) {
-//             $charge = Charge::create(array(
-//                 "amount" => 999,
-//                 "currency" => "usd",
-//                 "description" => "Example charge",
-//                 "source" => $token,
-//             ));
-//         }
-*/
+                // Charge the user's card:
+        //         if (module_exists('Charge') && function_exists('create')) {
+        //             $charge = Charge::create(array(
+        //                 "amount" => 999,
+        //                 "currency" => "usd",
+        //                 "description" => "Example charge",
+        //                 "source" => $token,
+        //             ));
+        //         }
+        */
     }
 
     /**

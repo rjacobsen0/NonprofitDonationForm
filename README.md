@@ -180,5 +180,13 @@ Wrong turn ends here.
   the Drupal licensing/contrib guidelines regarding third party code, so I will include it from it's current location
   if possible. Working on that now.
   
+  - I'm backing off and starting over with a fresh install of stripe. I'm carefully going over each dependency. One
+  that I missed before is that stripe requires <script src="https://js.stripe.com/v3/"></script> to be included
+  https://www.drupal.org/docs/8/theming-drupal-8/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-theme#external
+  and it should come directly from https://js.stripe.com. I put that in, but that is not the only problem, apparently.
   
+  - Still getting script errors. Tried a twig template with {{ attach_library('drupal/stripe') }} in it. Still no
+  luck.
+  
+  - I installed drupal/libraries using composer. Not sure it's appropriate for D8. Now I have to learn how to use it.
   
