@@ -1,5 +1,5 @@
 
-alert('Got to the start of the JS file!');
+// alert('Got to the start of the JS file!');
 var stripe = Stripe('pk_test_lVsNjrGaAepXPhWNBmkLvy3W');
 alert('Got to where we create stripe object!');
 //var elements = stripe.elements();

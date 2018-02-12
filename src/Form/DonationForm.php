@@ -10,6 +10,8 @@ namespace Drupal\nonprofit_donation_form\Form;
 use Drupal\Core\Form\drupal_set_message;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\stripe\Controller\StripeWebhookController;
+
 
 class DonationForm extends FormBase {
 
@@ -20,16 +22,12 @@ class DonationForm extends FormBase {
      * @return array
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        $form['javascript_loader'] = array(
-            '#theme' => 'my_template',
-            '#test_var' => $this->t('Test Value'),
-        );
 
-        $httpHost = $_SERVER['HTTP_HOST'];
         // nonprofit_donation_form_page_attachments($form);
         /*
         $phpSelf = $_SERVER['PHP_SELF'];
         $serverName = $_SERVER['SERVER_NAME'];
+        $httpHost = $_SERVER['HTTP_HOST'];
         $httpReferer = $_SERVER['HTTP_REFERER'];
         $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
         $scriptName = $_SERVER['SCRIPT_NAME'];
@@ -67,29 +65,57 @@ class DonationForm extends FormBase {
             '#required' => TRUE,
         );
 
+        $checkoutUrl = "https://checkout.stripe.com/checkout.js";
+        $class = "stripe-button";
+        $publicKey = "pk_test_lVsNjrGaAepXPhWNBmkLvy3W";
+        $defaultDonationAmount = 2000; // in pennies
+        $name = "Stripe.com";
+        $defaultDescription = 'Example charge';
+        $buttonImageLocation = 'https://stripe.com/img/documentation/checkout/marketplace.png';
+        $locale = 'auto';
+        $requestZipCode = 'true';
+
+        $form['stripe_button'] = array(
+            '#type' => 'markup',
+            '#markup' => $this->t('
+                    <script
+                        src="' . $checkoutUrl . '" 
+                        class="' . $class . '"
+                        data-key="' . $publicKey . '"
+                        data-amount="' . $defaultDonationAmount . '"
+                        data-name="' . $name . '"
+                        data-description="' . $defaultDescription . '"
+                        data-image="' . $buttonImageLocation . '"
+                        data-locale="' . $locale . '"
+                        data-zip-code="' . $requestZipCode . '">
+                      </script>
+            '),
+            '#attached' => array('library' => array('stripe/stripe', 'stripe/stripe.js', 'nonprofit_donation_form/nonprofit_donation_form_library'))
+        );
+/*
         $form['stripe_button'] = array(
             '#type' => 'markup',
             '#markup' => $this->t('
                     <div class="form-row">
-                    <label for="card-element">
-                      Credit or debit card
-                    </label>
-                    <div id="card-element">
-                      <!-- a Stripe Element will be inserted here. -->
+                        <label for="card-element">
+                          Credit or debit card
+                        </label>
+                        <div id="card-element">
+                          <!-- a Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- Used to display form errors -->
+                        <div id="card-errors" role="alert"></div>
                     </div>
-                    <!-- Used to display form errors -->
-                    <div id="card-errors" role="alert"></div>
-  </div>
             '),
             '#attached' => array('library' => array('stripe/stripe', 'stripe/stripe.js', 'nonprofit_donation_form/nonprofit_donation_form_library'))
         );
-
+*/
         $form['actions']['#type'] = 'actions';
-        $form['actions']['submit'] = array(
-            '#type' => 'submit',
-            '#value' => $this->t('Donate'),
-            '#button_type' => 'primary',
-        );
+        // $form['actions']['submit'] = array(
+        //     '#type' => 'submit',
+        //     '#value' => $this->t('Donate'),
+        //     '#button_type' => 'primary',
+        // );
 
         return $form;
     }
@@ -121,13 +147,13 @@ class DonationForm extends FormBase {
             // Would like to use a non-deprecated message call. This one doesn't work:
             // $this->messenger->addMessage("Thank you for donating!" . $key . ': ' . $value);
         }
-        /*
+
                 // Set your secret key: remember to change this to your live secret key in production
                 // See your keys here: https://dashboard.stripe.com/account/apikeys
                 if (module_exists('Stripe') && function_exists('setApiKey')) {
-                    Stripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+                    setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
                 }
-
+/*
                 // Token is created using Checkout or Elements!
                 // Get the payment token ID submitted by the form:
                 $token = $_POST['stripeToken'];
