@@ -1,10 +1,10 @@
-
+/*
 // alert('Got to the start of the JS file!');
 var stripe = Stripe('pk_test_lVsNjrGaAepXPhWNBmkLvy3W');
 alert('Got to where we create stripe object!');
-//var elements = stripe.elements();
+var elements = stripe.elements();
 
-/*
+
 
 // Custom styling can be passed to options when creating an Element.
 // (Note that this demo uses a wider set of styles than the guide below.)

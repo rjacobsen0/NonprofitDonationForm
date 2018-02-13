@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bc2b999b-5e64-47ee-94bd-e5012c515da7" name="Default" comment="Changed to a form from a controller. Adde a couple of fields and a submit.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/css/nonprofit_donation_form.css" afterPath="$PROJECT_DIR$/css/nonprofit_donation_form.css" />
       <change beforePath="$PROJECT_DIR$/js/nonprofit_donation_form.js" afterPath="$PROJECT_DIR$/js/nonprofit_donation_form.js" />
-      <change beforePath="$PROJECT_DIR$/nonprofit_donation_form.module" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/nonprofit_donation_form.info.yml" afterPath="$PROJECT_DIR$/nonprofit_donation_form.info.yml" />
+      <change beforePath="$PROJECT_DIR$/nonprofit_donation_form.libraries.yml" afterPath="$PROJECT_DIR$/nonprofit_donation_form.libraries.yml" />
       <change beforePath="$PROJECT_DIR$/src/Form/DonationForm.php" afterPath="$PROJECT_DIR$/src/Form/DonationForm.php" />
-      <change beforePath="$PROJECT_DIR$/templates/nonprofit_donation_form.html.twig" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="927">
+              <first_editor relative-caret-position="3247">
                 <caret line="191" column="2" lean-forward="false" selection-start-line="191" selection-start-column="2" selection-end-line="191" selection-end-column="2" />
                 <folding />
               </first_editor>
@@ -49,8 +50,8 @@
       <file leaf-file-name="nonprofit_donation_form.libraries.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.libraries.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,49 +67,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DonationForm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding>
-                <element signature="e#7#89#0#PHP" expanded="true" />
-                <element signature="e#139#179#0#PHP" expanded="true" />
-                <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-                <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-                <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-                <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nonprofit_donation_form.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/nonprofit_donation_form.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nonprofit_donation_form.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nonprofit_donation_form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nonprofit_donation_form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+            <state relative-caret-position="0">
+              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DonationForm.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+              <folding>
+                <element signature="e#7#89#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,9 +94,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>candidate_gender</find>
-      <find>setApiKey</find>
       <find>card-element</find>
       <find>apiKey</find>
+      <find>setApiKey</find>
+      <find>Stripe</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,19 +107,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/nonprofit_donation_form.routing.yml" />
-        <option value="$PROJECT_DIR$/css/nonprofit_donation_form.css" />
         <option value="$PROJECT_DIR$/stripe.libraries.yml" />
         <option value="$PROJECT_DIR$/nonprofit_donation_form.install" />
         <option value="$PROJECT_DIR$/src/Form/nonprofit_donation_form.install.php" />
         <option value="$PROJECT_DIR$/src/Form/nonprofit_donation_form_install.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/nonprofit_donation_form.info.yml" />
-        <option value="$PROJECT_DIR$/nonprofit_donation_form.libraries.yml" />
         <option value="$PROJECT_DIR$/nonprofit_donation_form.module" />
         <option value="$PROJECT_DIR$/templates/nonprofit_donation_form.html.twig" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/Form/DonationForm.php" />
+        <option value="$PROJECT_DIR$/nonprofit_donation_form.libraries.yml" />
+        <option value="$PROJECT_DIR$/css/nonprofit_donation_form.css" />
+        <option value="$PROJECT_DIR$/nonprofit_donation_form.info.yml" />
         <option value="$PROJECT_DIR$/js/nonprofit_donation_form.js" />
+        <option value="$PROJECT_DIR$/src/Form/DonationForm.php" />
       </list>
     </option>
   </component>
@@ -159,8 +136,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="481" />
-    <option name="y" value="204" />
+    <option name="x" value="137" />
+    <option name="y" value="232" />
     <option name="width" value="2317" />
     <option name="height" value="1788" />
   </component>
@@ -179,6 +156,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -186,11 +164,6 @@
             <path>
               <item name="nonprofit_donation_form" type="b2602c69:ProjectViewProjectNode" />
               <item name="nonprofit_donation_form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="nonprofit_donation_form" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nonprofit_donation_form" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="nonprofit_donation_form" type="b2602c69:ProjectViewProjectNode" />
@@ -216,7 +189,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +242,11 @@
       <workItem from="1518211628532" duration="14046000" />
       <workItem from="1518233102504" duration="32596000" />
       <workItem from="1518319522000" duration="6684000" />
-      <workItem from="1518381175378" duration="14980000" />
+      <workItem from="1518381175378" duration="22098000" />
+      <workItem from="1518452703490" duration="8175000" />
+      <workItem from="1518474055098" duration="1936000" />
+      <workItem from="1518477125869" duration="8676000" />
+      <workItem from="1518488659146" duration="658000" />
     </task>
     <task id="LOCAL-00001" summary="Changed to a form from a controller. Adde a couple of fields and a submit.">
       <created>1518154665237</created>
@@ -283,31 +259,30 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91783000" />
+    <option name="totallyTimeSpent" value="118346000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="481" y="204" width="2317" height="1788" extended-state="0" />
-    <editor active="true" />
+    <frame x="137" y="232" width="2317" height="1788" extended-state="0" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18122555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32995832" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18122555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32995832" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -328,30 +303,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.libraries.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/nonprofit_donation_form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nonprofit_donation_form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.libraries.yml" />
+    <entry file="file://$PROJECT_DIR$/css/nonprofit_donation_form.css" />
+    <entry file="file://$PROJECT_DIR$/js/nonprofit_donation_form.js" />
     <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.info.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -360,24 +314,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php" />
     <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="57" column="22" lean-forward="false" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="22" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#139#179#0#PHP" expanded="true" />
-            <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
           </folding>
         </state>
       </provider>
@@ -390,20 +333,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/examples/oauth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="98" column="36" lean-forward="false" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/examples/oauth.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php" />
     <entry file="file://$PROJECT_DIR$/../stripe/stripe.routing.yml" />
     <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.routing.yml">
       <provider selected="true" editor-type-id="text-editor">
@@ -419,11 +350,6 @@
           <caret line="48" column="4" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#139#179#0#PHP" expanded="true" />
-            <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
           </folding>
         </state>
       </provider>
@@ -472,11 +398,6 @@
           <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#139#179#0#PHP" expanded="true" />
-            <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
           </folding>
         </state>
       </provider>
@@ -516,11 +437,6 @@
           <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#139#179#0#PHP" expanded="true" />
-            <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
           </folding>
         </state>
       </provider>
@@ -529,80 +445,53 @@
     <entry file="file://$PROJECT_DIR$/../stripe/stripe.routing.yml" />
     <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php-6.0.0/examples/oauth.php" />
     <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php-6.0.0/init.php" />
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiRequestor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/AlipayAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/examples/oauth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiOperations/All.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiRequestor.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/AlipayAccount.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Account.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiResource.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiResponse.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/examples/oauth.php" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/ApiOperations/All.php" />
     <entry file="file://$PROJECT_DIR$/../stripe/src/Element/Stripe.php" />
     <entry file="file://$PROJECT_DIR$/stripe.libraries.yml" />
     <entry file="file://$PROJECT_DIR$/templates/nonprofit_donation_form-stripe.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/Form/nonprofit_donation_form.install" />
     <entry file="file://$PROJECT_DIR$/src/Form/nonprofit_donation_form.install.php" />
-    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+    <entry file="file://$PROJECT_DIR$/../../vendor/stripe-php/lib/Stripe.php" />
+    <entry file="file://$PROJECT_DIR$/src/Form/nonprofit_donation_form_install.php" />
+    <entry file="file://$PROJECT_DIR$/templates/nonprofit_donation_form.html.twig" />
+    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.module" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3247">
+            <caret line="191" column="2" lean-forward="false" selection-start-line="191" selection-start-column="2" selection-end-line="191" selection-end-column="2" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/nonprofit_donation_form_install.php" />
+    <entry file="file://$PROJECT_DIR$/css/nonprofit_donation_form.css" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/nonprofit_donation_form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.info.yml">
+    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.libraries.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -615,69 +504,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.libraries.yml">
+    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.info.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <caret line="11" column="59" lean-forward="false" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/nonprofit_donation_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nonprofit_donation_form.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/nonprofit_donation_form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="927">
-            <caret line="191" column="2" lean-forward="false" selection-start-line="191" selection-start-column="2" selection-end-line="191" selection-end-column="2" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
-            <element signature="e#139#179#0#PHP" expanded="true" />
-            <marker date="1518408567650" expanded="true" signature="3118:3119" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3449:3888" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3500:3580" ph="..." />
-            <marker date="1518408567650" expanded="true" signature="3628:3734" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/nonprofit_donation_form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>

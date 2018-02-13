@@ -6,7 +6,7 @@ type: module
 core: 8.x
 
 dependencies:
-  - drupal: stripe
+  - stripe
 
 libraries:
   - nonprofit_donation_form/nonprofit_donation_form_library
