@@ -11,144 +11,130 @@ use Drupal\Core\Form\drupal_set_message;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
+use Stripe\Stripe as libraryStripe;
+use Stripe\Charge;
+use Drupal\stripe\Element\Stripe as elementStripe;
+
 class DonationForm extends FormBase {
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormId() {
+        return 'DonationForm';
+    }
 
     /**
-     * @param array $form
-     * @param FormStateInterface $form_state
-     * @return array
+     * {@inheritdoc}
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        $form['javascript_loader'] = array(
-            '#theme' => 'my_template',
-            '#test_var' => $this->t('Test Value'),
-        );
+        //libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        $link_generator = \Drupal::service('link_generator');
 
-        $httpHost = $_SERVER['HTTP_HOST'];
-        // nonprofit_donation_form_page_attachments($form);
-        /*
-        $phpSelf = $_SERVER['PHP_SELF'];
-        $serverName = $_SERVER['SERVER_NAME'];
-        $httpReferer = $_SERVER['HTTP_REFERER'];
-        $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
-        $scriptName = $_SERVER['SCRIPT_NAME'];
-
-        $form['server_info'] = array(
-            '#type' => 'markup',
-            '#markup' => $this->t('php_self = ' . $phpSelf . '<br />' .
-                'serverName = ' . $serverName . '<br />' .
-                'httpHost = ' . $httpHost . '<br />' .
-                'httpReferer = ' . $httpReferer . '<br />' .
-                'httpUserAgent = ' . $httpUserAgent . '<br />' .
-                'scriptName = ' . $scriptName . '<br />'
-            ));
-        */
-
-        $form['donor_name'] = array(
+        $form['donor_first_name'] = [
             '#type' => 'textfield',
-            '#title' => t('Your Name:'),
+            '#title' => $this->t('First name'),
             '#required' => TRUE,
-        );
-        /*
-        $form['amount_list'] = array (
-            '#type' => 'select',
-            '#title' => ('Amount'),
-            '#options' => array(
-                '20' => t('$20'),
-                '50' => t('$50'),
-                '100' => t('$100'),
-            ),
-        );
-        */
-        $form['amount'] = array(
+        ];
+        $form['donor_last_name'] = [
+            '#type' => 'textfield',
+            '#title' => $this->t('Last name'),
+            '#required' => TRUE,
+        ];
+        $form['amount'] = [
             '#type' => 'number',
-            '#title' => t('Donation Amount in US dollars:'),
+            '#title' => t('Amount:'),
             '#required' => TRUE,
-        );
+        ];
+        $form['stripe'] = [
+            '#type' => 'stripe',
+            '#title' => $this->t('Credit card'),
+            "#stripe_selectors" => [
+                'first_name' => ':input[name="first"]',
+                'last_name' => ':input[name="last"]',
+            ]
+        ];
+        if ($this->checkTestStripeApiKey()) {
 
-        $form['stripe_button'] = array(
-            '#type' => 'markup',
-            '#markup' => $this->t('
-                    <div class="form-row">
-                    <label for="card-element">
-                      Credit or debit card
-                    </label>
-                    <div id="card-element">
-                      <!-- a Stripe Element will be inserted here. -->
-                    </div>
-                    <!-- Used to display form errors -->
-                    <div id="card-errors" role="alert"></div>
-  </div>
-            '),
-            '#attached' => array('library' => array('stripe/stripe', 'stripe/stripe.js', 'nonprofit_donation_form/nonprofit_donation_form_library'))
-        );
+            $form['submit'] = [
+                '#type' => 'submit',
+                '#value' => $this->t('Donate'),
+            ];
 
-        $form['actions']['#type'] = 'actions';
-        $form['actions']['submit'] = array(
-            '#type' => 'submit',
-            '#value' => $this->t('Donate'),
-            '#button_type' => 'primary',
-        );
+        }
 
         return $form;
     }
 
-
     /**
-     * @param array $form
-     * @param FormStateInterface $form_state
+     * {@inheritdoc}
      */
     public function validateForm(array &$form, FormStateInterface $form_state) {
-        if ($form_state->getValue('amount') < 1 || $form_state->getValue('amount') > 10000 ) {
-            $form_state->setErrorByName('amount', $this->t('Amount must be between $1 and $10,000.'));
-        }
+        parent::validateForm($form, $form_state);
     }
 
-
     /**
-     * @param array $form
-     * @param FormStateInterface $form_state
+     * {@inheritdoc}
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
 
-        // nonprofit_donation_form_page_attachments($form);
+        libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        if ($this->checkTestStripeApiKey()) {
+            // Make test charge if we have test environment and api key.
+            $stripe_token = $form_state->getValue('stripe');
+            $charge = $this->createCharge($stripe_token, 25);
+            drupal_set_message('Charge status: ' . $charge->status);
+            if ($charge->status == 'succeeded') {
+                $link_generator = \Drupal::service('link_generator');
+                drupal_set_message($this->t('Please check payments in @link.', [
+                    '@link' => $link_generator->generate('stripe dashboard', Url::fromUri('https://dashboard.stripe.com/test/payments')),
+                ]));
+            }
+        }
 
-        // drupal_set_message($this->t('@can_name ,Your application is being submitted!', array('@can_name' => $form_state->getValue('candidate_name'))));
+        // Display result.
         drupal_set_message("Thank you for donating!");
         foreach ($form_state->getValues() as $key => $value) {
             drupal_set_message($key . ': ' . $value);
-            // Would like to use a non-deprecated message call. This one doesn't work:
-            // $this->messenger->addMessage("Thank you for donating!" . $key . ': ' . $value);
         }
-        /*
-                // Set your secret key: remember to change this to your live secret key in production
-                // See your keys here: https://dashboard.stripe.com/account/apikeys
-                if (module_exists('Stripe') && function_exists('setApiKey')) {
-                    Stripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
-                }
 
-                // Token is created using Checkout or Elements!
-                // Get the payment token ID submitted by the form:
-                $token = $_POST['stripeToken'];
-                drupal_set_message($token);
-
-                // Charge the user's card:
-        //         if (module_exists('Charge') && function_exists('create')) {
-        //             $charge = Charge::create(array(
-        //                 "amount" => 999,
-        //                 "currency" => "usd",
-        //                 "description" => "Example charge",
-        //                 "source" => $token,
-        //             ));
-        //         }
-        */
+        //$charge = Charge::create(array('amount' => 2000, 'currency' => 'usd', 'source' => 'tok_189fqt2eZvKYlo2CTGBeg6Uq' ));
+        //echo $charge;
+        //elementStripe::processStripe($form, null);
     }
 
     /**
-     * @return string
+     * Helper function for checking Stripe Api Keys.
      */
-    public function getFormId() {
-        return 'DonationForm';
+    private function checkTestStripeApiKey() {
+        $status = FALSE;
+        $config = \Drupal::config('stripe.settings');
+        if ($config->get('environment') == 'test' && $config->get('apikey.test.secret')) {
+            $status = TRUE;
+        }
+        return $status;
+    }
+
+    /**
+     * Helper function for test charge.
+     *
+     * @param string $stripe_token
+     *   Stripe API token.
+     * @param int $amount
+     *   Amount for charge.
+     *
+     * @return /Stripe/Charge
+     *   Charge object.
+     */
+    private function createCharge($stripe_token, $amount) {
+        $config = \Drupal::config('stripe.settings');
+        Stripe::setApiKey($config->get('apikey.test.secret'));
+        $charge = Charge::create([
+            'amount' => $amount * 100,
+            'currency' => 'usd',
+            'description' => "Example charge",
+            'source' => $stripe_token,
+        ]);
+        return $charge;
     }
 }
