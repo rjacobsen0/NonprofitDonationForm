@@ -28,7 +28,8 @@ class DonationForm extends FormBase {
      * {@inheritdoc}
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        //libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        $link_generator = \Drupal::service('link_generator');
 
         $form['donor_first_name'] = [
             '#type' => 'textfield',
@@ -48,16 +49,19 @@ class DonationForm extends FormBase {
         $form['stripe'] = [
             '#type' => 'stripe',
             '#title' => $this->t('Credit card'),
-            // The selectors are gonna be looked within the enclosing form only
             "#stripe_selectors" => [
                 'first_name' => ':input[name="first"]',
                 'last_name' => ':input[name="last"]',
             ]
         ];
-        $form['submit'] = [
-            '#type' => 'submit',
-            '#value' => $this->t('Donate'),
-        ];
+        if ($this->checkTestStripeApiKey()) {
+
+            $form['submit'] = [
+                '#type' => 'submit',
+                '#value' => $this->t('Donate'),
+            ];
+
+        }
 
         return $form;
     }
@@ -73,15 +77,64 @@ class DonationForm extends FormBase {
      * {@inheritdoc}
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
+
+        libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
+        if ($this->checkTestStripeApiKey()) {
+            // Make test charge if we have test environment and api key.
+            $stripe_token = $form_state->getValue('stripe');
+            $charge = $this->createCharge($stripe_token, 25);
+            drupal_set_message('Charge status: ' . $charge->status);
+            if ($charge->status == 'succeeded') {
+                $link_generator = \Drupal::service('link_generator');
+                drupal_set_message($this->t('Please check payments in @link.', [
+                    '@link' => $link_generator->generate('stripe dashboard', Url::fromUri('https://dashboard.stripe.com/test/payments')),
+                ]));
+            }
+        }
+
         // Display result.
         drupal_set_message("Thank you for donating!");
         foreach ($form_state->getValues() as $key => $value) {
             drupal_set_message($key . ': ' . $value);
         }
-        libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
-        $charge = Charge::create(array('amount' => 2000, 'currency' => 'usd', 'source' => 'tok_189fqt2eZvKYlo2CTGBeg6Uq' ));
-        echo $charge;
-        elementStripe::processStripe($form);
+
+        //$charge = Charge::create(array('amount' => 2000, 'currency' => 'usd', 'source' => 'tok_189fqt2eZvKYlo2CTGBeg6Uq' ));
+        //echo $charge;
+        //elementStripe::processStripe($form, null);
     }
 
+    /**
+     * Helper function for checking Stripe Api Keys.
+     */
+    private function checkTestStripeApiKey() {
+        $status = FALSE;
+        $config = \Drupal::config('stripe.settings');
+        if ($config->get('environment') == 'test' && $config->get('apikey.test.secret')) {
+            $status = TRUE;
+        }
+        return $status;
+    }
+
+    /**
+     * Helper function for test charge.
+     *
+     * @param string $stripe_token
+     *   Stripe API token.
+     * @param int $amount
+     *   Amount for charge.
+     *
+     * @return /Stripe/Charge
+     *   Charge object.
+     */
+    private function createCharge($stripe_token, $amount) {
+        $config = \Drupal::config('stripe.settings');
+        Stripe::setApiKey($config->get('apikey.test.secret'));
+        $charge = Charge::create([
+            'amount' => $amount * 100,
+            'currency' => 'usd',
+            'description' => "Example charge",
+            'source' => $stripe_token,
+        ]);
+        return $charge;
+    }
 }
