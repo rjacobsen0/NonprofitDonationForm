@@ -70,9 +70,14 @@ class DonationForm extends FormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
         if ($this->checkTestStripeApiKey()) {
+            drupal_set_message("Thank you for donating!");
             // Make test charge if we have test environment and api key.
             $stripe_token = $form_state->getValue('stripe');
-            $charge = $this->createCharge($stripe_token, 25);
+            $amount = $form_state->getValue('amount');
+            drupal_set_message("amount: " . $amount);
+            /*
+            $charge = $this->createCharge($stripe_token, $amount);
+
             drupal_set_message('Charge status: ' . $charge->status);
             if ($charge->status == 'succeeded') {
                 $link_generator = \Drupal::service('link_generator');
@@ -80,13 +85,14 @@ class DonationForm extends FormBase {
                     '@link' => $link_generator->generate('stripe dashboard', Url::fromUri('https://dashboard.stripe.com/test/payments')),
                 ]));
             }
+            */
         }
 
         // Display result.
-        drupal_set_message("Thank you for donating!");
+        /*drupal_set_message("Thank you for donating!");
         foreach ($form_state->getValues() as $key => $value) {
             drupal_set_message($key . ': ' . $value);
-        }
+        }*/
     }
 
     /**

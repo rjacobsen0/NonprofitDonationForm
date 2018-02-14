@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc2b999b-5e64-47ee-94bd-e5012c515da7" name="Default" comment="Changed to a form from a controller. Adde a couple of fields and a submit.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/config/install/nonprofit_donation_form.settings.yml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Form/DonationForm.php" afterPath="$PROJECT_DIR$/src/Form/DonationForm.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +38,8 @@
       <file leaf-file-name="DonationForm.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+            <state relative-caret-position="1282">
+              <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
               <folding>
                 <element signature="e#7#89#0#PHP" expanded="true" />
                 <element signature="e#139#179#0#PHP" expanded="true" />
@@ -282,7 +279,7 @@
       <workItem from="1518452703490" duration="8175000" />
       <workItem from="1518474055098" duration="1936000" />
       <workItem from="1518477125869" duration="8676000" />
-      <workItem from="1518488659146" duration="31871000" />
+      <workItem from="1518488659146" duration="33491000" />
     </task>
     <task id="LOCAL-00001" summary="Changed to a form from a controller. Adde a couple of fields and a submit.">
       <created>1518154665237</created>
@@ -295,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149559000" />
+    <option name="totallyTimeSpent" value="151179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="223" y="41" width="2768" height="1936" extended-state="0" />
@@ -601,8 +598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+        <state relative-caret-position="1282">
+          <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
           <folding>
             <element signature="e#7#89#0#PHP" expanded="true" />
             <element signature="e#139#179#0#PHP" expanded="true" />
