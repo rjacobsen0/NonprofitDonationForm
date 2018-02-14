@@ -10,10 +10,7 @@ namespace Drupal\nonprofit_donation_form\Form;
 use Drupal\Core\Form\drupal_set_message;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-
-use Stripe\Stripe as libraryStripe;
 use Stripe\Charge;
-use Drupal\stripe\Element\Stripe as elementStripe;
 
 class DonationForm extends FormBase {
 
@@ -28,9 +25,6 @@ class DonationForm extends FormBase {
      * {@inheritdoc}
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        //libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
-        $link_generator = \Drupal::service('link_generator');
-
         $form['donor_first_name'] = [
             '#type' => 'textfield',
             '#title' => $this->t('First name'),
@@ -55,12 +49,10 @@ class DonationForm extends FormBase {
             ]
         ];
         if ($this->checkTestStripeApiKey()) {
-
             $form['submit'] = [
                 '#type' => 'submit',
                 '#value' => $this->t('Donate'),
             ];
-
         }
 
         return $form;
@@ -77,8 +69,6 @@ class DonationForm extends FormBase {
      * {@inheritdoc}
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
-
-        libraryStripe::setApiKey("sk_test_WHRBOCsLkZ3LmFRONlOGjn25");
         if ($this->checkTestStripeApiKey()) {
             // Make test charge if we have test environment and api key.
             $stripe_token = $form_state->getValue('stripe');
@@ -97,10 +87,6 @@ class DonationForm extends FormBase {
         foreach ($form_state->getValues() as $key => $value) {
             drupal_set_message($key . ': ' . $value);
         }
-
-        //$charge = Charge::create(array('amount' => 2000, 'currency' => 'usd', 'source' => 'tok_189fqt2eZvKYlo2CTGBeg6Uq' ));
-        //echo $charge;
-        //elementStripe::processStripe($form, null);
     }
 
     /**

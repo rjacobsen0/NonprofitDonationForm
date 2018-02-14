@@ -170,15 +170,17 @@ Wrong turn ends here.
   ice for a while.
       + composer require drupal/stripe
   
-  - Now I want to add javascript of my own, plus the javascript from stripe. Found documentation:
+  - Now I want to add javascript of my own, plus the javascript from stripe. Found documentation, the last on this list
+  was the most useful:
     + https://www.drupal.org/docs/8/creating-custom-modules/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-module
     + https://www.drupal.org/forum/support/module-development-and-code-questions/2016-08-08/adding-js-to-the-block-through-module
     + https://drupal.stackexchange.com/questions/223260/whats-the-correct-way-to-include-javascript-dependencies-into-modules
     + https://www.drupal.org/node/2605130
     + https://atendesigngroup.com/blog/mastering-drupal-8%E2%80%99s-libraries-api
-  - It's not cool to pull the stipe.js file into this module because it prevents independent upgrades and is against
-  the Drupal licensing/contrib guidelines regarding third party code, so I will include it from it's current location
-  if possible. Working on that now.
+    
+  - It's not cool to pull the stipe.js file into this module (nonprofit_donation_form) because it prevents independent
+  upgrades and is against the Drupal licensing/contrib guidelines regarding third party code, so I will include it from
+  it's current location if possible. Working on that now.
   
   - I'm backing off and starting over with a fresh install of stripe. I'm carefully going over each dependency. One
   that I missed before is that stripe requires <script src="https://js.stripe.com/v3/"></script> to be included
@@ -188,5 +190,24 @@ Wrong turn ends here.
   - Still getting script errors. Tried a twig template with {{ attach_library('drupal/stripe') }} in it. Still no
   luck.
   
-  - I installed drupal/libraries using composer. Not sure it's appropriate for D8. Now I have to learn how to use it.
+  - Still getting php errors about missing libraries and modules when I add a use statement.
   
+  - I installed drupal/libraries using composer. Not sure it's appropriate for D8. And it looks like another wrong turn.
+  Uninstalling.
+  
+  - Turns out I had a bad directory setting in phpStorm. <ctrl><alt>s on the directories tab was set to
+  nonprofit_donation_form directory and needed to be set to the drupal root directory. Now PhpStorm can find
+  libraries and modules and will no longer give me error messages about missing libraries.
+    
+  - The reason stripe is not working yet is configuration. I'm getting a console error about trying to call stripe
+  with an empty string as the ApiKey. So I found a file in the stripe module config/install/stripe.settings.yml and I
+  modified it to include the keys, then I uninstalled and re-installed stripe. That fixed the problem, but it is not a
+  good solution because as soon as you update the stripe module those settings will disappear. I am looking for a better
+  solution now. I think it will involve settings.php or adding data to the database in settings. The criteria should be
+    + the private key should not appear in github and
+    + upgrades should be easy and not require re-entering the keys.
+  
+  - I'll add ApiKeys for stripe to the settings.php. This documentation is helpful. https://www.drupal.org/docs/8/api/configuration-api/configuration-override-system
+   where it says "Providing overrides from modules". Actually it looks like settings.php is not the right place. Instead
+   I'll set them on http://localhost/drupal/admin/config/stripe. Curiosity got me to read up on where config information
+   is stored. 
