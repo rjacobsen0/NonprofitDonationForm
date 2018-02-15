@@ -224,3 +224,9 @@ Wrong turn ends here.
      + Unrecognized token creation parameter parameter: last_name is not a recognized parameter. This may cause issues
      with your integration in the future.
      + Error: POST http://localhost/drupal/nonprofit_donation_form 500 (500 Service unavailable (with message))
+     
+   - I played with ajax validation and decided against it because every time one of the fields was validated it cleared
+   out the credit card information. This is a security vs. efficiency tradeoff. The credit card info is cleared for
+   security.
+   
+   - 
