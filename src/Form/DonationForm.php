@@ -28,18 +28,7 @@ class DonationForm extends FormBase {
         $form['first'] = [
             '#type' => 'textfield',
             '#title' => $this->t('First name'),
-            '#prefix' => '<div id="user-first-name-result">',
-            '#suffix' => '</div>',
             '#required' => TRUE,
-            '#ajax' => [
-                'callback' => '::checkUserFirstNameValidation',
-                'effect' => 'fade',
-                'event' => 'change',
-                'progress' => [
-                    'type' => 'throbber',
-                    'message' => 'ajax message here',
-                ],
-             ],
         ];
         $form['last'] = [
             '#type' => 'textfield',
@@ -67,20 +56,6 @@ class DonationForm extends FormBase {
         }
 
         return $form;
-    }
-
-    public function checkUserFirstNameValidation(array $form, FormStateInterface $form_state)
-    {
-        $ajax_response = new AjaxResponse();
-
-        // Check if User or email exists or not
-        if (strlen($form_state->getValue(first)) > 128 ) {
-            $text = 'First name must not be longer than 128 characters.';
-       } else {
-         $text = '';
-       }
-       $ajax_response->addCommand(new HtmlCommand('#user-first-name-result', $text));
-       return $ajax_response;
     }
 
     /**
