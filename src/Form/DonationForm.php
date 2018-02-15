@@ -10,10 +10,10 @@ namespace Drupal\nonprofit_donation_form\Form;
 use Drupal\Core\Form\drupal_set_message;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Stripe\Stripe;
 use Stripe\Charge;
 
 class DonationForm extends FormBase {
-
     /**
      * {@inheritdoc}
      */
@@ -25,12 +25,12 @@ class DonationForm extends FormBase {
      * {@inheritdoc}
      */
     public function buildForm(array $form, FormStateInterface $form_state) {
-        $form['donor_first_name'] = [
+        $form['first'] = [
             '#type' => 'textfield',
             '#title' => $this->t('First name'),
             '#required' => TRUE,
         ];
-        $form['donor_last_name'] = [
+        $form['last'] = [
             '#type' => 'textfield',
             '#title' => $this->t('Last name'),
             '#required' => TRUE,
@@ -63,6 +63,10 @@ class DonationForm extends FormBase {
      */
     public function validateForm(array &$form, FormStateInterface $form_state) {
         parent::validateForm($form, $form_state);
+        $amount = $form_state->getValue('amount');
+        if ($amount < 1 || $amount > 10000 ) {
+            $form_state->setErrorByName('amount', $this->t('Amount must be between $1 and $10,000.'));
+        }
     }
 
     /**
@@ -75,9 +79,7 @@ class DonationForm extends FormBase {
             $stripe_token = $form_state->getValue('stripe');
             $amount = $form_state->getValue('amount');
             drupal_set_message("amount: " . $amount);
-            /*
             $charge = $this->createCharge($stripe_token, $amount);
-
             drupal_set_message('Charge status: ' . $charge->status);
             if ($charge->status == 'succeeded') {
                 $link_generator = \Drupal::service('link_generator');
@@ -85,7 +87,6 @@ class DonationForm extends FormBase {
                     '@link' => $link_generator->generate('stripe dashboard', Url::fromUri('https://dashboard.stripe.com/test/payments')),
                 ]));
             }
-            */
         }
 
         // Display result.
@@ -121,12 +122,14 @@ class DonationForm extends FormBase {
     private function createCharge($stripe_token, $amount) {
         $config = \Drupal::config('stripe.settings');
         Stripe::setApiKey($config->get('apikey.test.secret'));
-        $charge = Charge::create([
+        $params = array(
             'amount' => $amount * 100,
             'currency' => 'usd',
             'description' => "Example charge",
             'source' => $stripe_token,
-        ]);
+            );
+        //$charge = Charge::create($params);
+        $charge = "charge";
         return $charge;
     }
 }

@@ -211,3 +211,16 @@ Wrong turn ends here.
    where it says "Providing overrides from modules". Actually it looks like settings.php is not the right place. Instead
    I'll set them on http://localhost/drupal/admin/config/stripe. Curiosity got me to read up on where config information
    is stored. 
+   
+   - If this were a live site I would get a certificate and use https. This page is helpful https://www.drupal.org/https-information
+   We are getting a console message: "You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS."
+   
+   - At this point I need a debugger but I don't have one. I took a break to install Xdebug, but it's not
+   working yet.
+   
+   - I'm getting two warnings and an error in the console.
+     + Unrecognized token creation parameter parameter: first_name is not a recognized parameter. This may cause issues
+     with your integration in the future.
+     + Unrecognized token creation parameter parameter: last_name is not a recognized parameter. This may cause issues
+     with your integration in the future.
+     + Error: POST http://localhost/drupal/nonprofit_donation_form 500 (500 Service unavailable (with message))
