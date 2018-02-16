@@ -106,7 +106,7 @@ class DonationForm extends FormBase {
 
                 $firstName = $form_state->getValue('first');
                 $lastName = $form_state->getValue('last');
-                // $this->SaveDonorInfoDB($firstName, $lastName, $stripe_token, $amount);
+                $this->SaveDonorInfoDB($firstName, $lastName, $stripe_token, $amount);
             }
             else
             {
@@ -128,15 +128,18 @@ class DonationForm extends FormBase {
             'StripeToken' => $stripe_token,
         );
 
-        /* This is one method. I'm also trying the uncommented method below. Will go with the one that
-        gives me working code. If both are working I will go with the one below because it is more D8.
-
+        /* Two methods of saving. Will go with the one that
+        gives me working code. If both are working I will go
+        with the second one below because it is more D8, but
+        I would move it into its own class like the first one.
+*/
+        /*
         $return = DonationStorage::insert($field);
         if ($return) {
             drupal_set_message($this->t('Created entry @field', ['@field' => print_r($field, TRUE)]));
         }
 */
-
+/*
         $query = \Drupal::database();
         try {
             $query->insert('Donation')
@@ -149,7 +152,7 @@ class DonationForm extends FormBase {
         catch (\Exception $e) {
             drupal_set_message("Error: data was not saved. " . $e->getMessage());
         }
-
+*/
     }
     /**
      * Helper function for checking Stripe Api Keys.
