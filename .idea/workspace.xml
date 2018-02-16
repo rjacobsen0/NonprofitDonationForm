@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc2b999b-5e64-47ee-94bd-e5012c515da7" name="Default" comment="Changed to a form from a controller. Adde a couple of fields and a submit.">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/DonationStorage.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/src/Form/DonationForm.php" afterPath="$PROJECT_DIR$/src/Form/DonationForm.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,8 +68,8 @@
       <file leaf-file-name="DonationForm.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1404">
-              <caret line="131" column="8" lean-forward="false" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
+            <state relative-caret-position="316">
+              <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -434,7 +431,7 @@
       <workItem from="1518477125869" duration="8676000" />
       <workItem from="1518488659146" duration="42303000" />
       <workItem from="1518654476088" duration="688000" />
-      <workItem from="1518655176514" duration="48607000" />
+      <workItem from="1518655176514" duration="49178000" />
     </task>
     <task id="LOCAL-00001" summary="Changed to a form from a controller. Adde a couple of fields and a submit.">
       <created>1518154665237</created>
@@ -447,7 +444,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209286000" />
+    <option name="totallyTimeSpent" value="209857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="179" y="0" width="2596" height="2127" extended-state="0" />
@@ -840,8 +837,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/DonationForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="131" column="8" lean-forward="false" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
+        <state relative-caret-position="316">
+          <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
           <folding />
         </state>
       </provider>
