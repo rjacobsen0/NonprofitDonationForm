@@ -55,6 +55,28 @@ Does the donor get an e-mail confirmation of their donation? If so we need email
 
 Couldn't we fill in the user's name for them if they're logged in?
 
+Database schema: The database should store a table called Donation
+ + Key int
+ + FirstName varchar 128
+ + LastName varchar 128
+ + Amount int
+ + StripeToken varchar 256
+ + TransactionTime datetime
+ + UserID int (foreign key)
+
+There's a tool I like called Pencil. I make wire frames with it. See file nonprofitdonation.ep.
+
+Non-functional requirements:
+ + Able to support 1,000 concurrent users
+ + Security of personally identifiable information, using https, not storing credit card information.
+ + Able to reuse in other non-profit web sites
+
+Tests
+ + A first name must be provided and be between 1 and 256 characters long.
+ + A last name must be provided and be between 1 and 256 characters long.
+ + A donation amount must be provided and be between $1 and $10,000.
+ + The user must be able to enter credit card information
+
 # Installation Notes
 
  - Started a repository https://github.com/rjacobsen0/NonprofitDonationForm.git for this work. I've been using SVN,
@@ -264,4 +286,5 @@ Wrong turn ends here.
 
    ```
    
-   - 
+   - In adding data to the database, this page was particularly helpful. http://valuebound.com/resources/blog/how-to-create-custom-form-crud-create-delete-update-operations-drupal-8
+   

@@ -5,3 +5,11 @@ nonprofit_donation_form.form:
     _form: '\Drupal\nonprofit_donation_form\Form\DonationForm'
   requirements:
     _permission: 'access content'
+
+nonprofit_donation_form.thank_you:
+  path: '/nonprofit_donation_form/thank_you'
+  defaults:
+    _controller: '\Drupal\nonprofit_donation_form\Controller\ThankYouController::content'
+    _title: 'Thank you!'
+  requirements:
+    _permission: 'access content'
