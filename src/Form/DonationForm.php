@@ -63,11 +63,11 @@ class DonationForm extends FormBase {
      */
     public function validateForm(array &$form, FormStateInterface $form_state) {
         parent::validateForm($form, $form_state);
-
+/*
         if ($this->currentUser->isAnonymous()) {
             $form_state->setError($form['submit'], $this->t('You must be logged in to make a donation.'));
         }
-
+*/
         $amount = $form_state->getValue('amount');
         if (!intval($amount)) {
             $form_state->setErrorByName('amount', $this->t('Amount needs to be a number'));
@@ -84,6 +84,7 @@ class DonationForm extends FormBase {
         if (strlen($lastName) < 1 || strlen($lastName) > 128 ) {
             $form_state->setErrorByName('last', $this->t('Last name must have length at least 1 and less than 128 characters.'));
         }
+
     }
 
     /**
@@ -105,7 +106,7 @@ class DonationForm extends FormBase {
 
                 $firstName = $form_state->getValue('first');
                 $lastName = $form_state->getValue('last');
-                // $this->SaveDonorInfoDB($firstName, $lastName, $stripe_token, $amount);
+                $this->SaveDonorInfoDB($firstName, $lastName, $stripe_token, $amount);
             }
             else
             {
@@ -127,15 +128,18 @@ class DonationForm extends FormBase {
             'StripeToken' => $stripe_token,
         );
 
-        /* This is one method. I'm also trying the uncommented method below. Will go with the one that
-        gives me working code. If both are working I will go with the one below because it is more D8.
-        
+        /* Two methods of saving. Will go with the one that
+        gives me working code. If both are working I will go
+        with the second one below because it is more D8, but
+        I would move it into its own class like the first one.
+*/
+        /*
         $return = DonationStorage::insert($field);
         if ($return) {
             drupal_set_message($this->t('Created entry @field', ['@field' => print_r($field, TRUE)]));
         }
 */
-
+/*
         $query = \Drupal::database();
         try {
             $query->insert('Donation')
@@ -148,7 +152,7 @@ class DonationForm extends FormBase {
         catch (\Exception $e) {
             drupal_set_message("Error: data was not saved. " . $e->getMessage());
         }
-
+*/
     }
     /**
      * Helper function for checking Stripe Api Keys.
