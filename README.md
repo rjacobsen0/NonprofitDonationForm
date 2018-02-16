@@ -25,31 +25,20 @@ good records for an audit.
 Questions to consider:
 
 Does a philanthropist have to log in before donating? Could be a barrier to donation. Can we collect account information
-upon donation and auto-create an account? Yes. No-password accounts. Not really an account but only an identifier like
-name of the philanthropist.
+upon donation and auto-create an account? No. Prompt user to log in.
 
 How do we protect the privacy of philanthropists? We don't want a list of names and PII, but we would want to match
-recognized philanthropists with existing donors.
+recognized philanthropists with existing donors. Answer: User must be logged in.
 
-The form inputs will be guided by the requirements of Stripe. If there is a lot of PII (Personally Identifiable
-Information), we will ask the user to create a password and make it a real secure account before a new philanthropist
-donates.
+The form inputs will include first name, last name, and amount.
 
-Can we de-dup on the fly when a donor returns without logging in? Perhaps we force a login before donating.
+What characters and how long should a user name be? Answer: 1 to 128 characters for each first and last, html not allowed.
 
-As a new philanthropist can I create a new account before making a donation or is making a donation the only way to
-create an account?
-
-What characters and how long should a user name be? We should suggest a user name based on the philanthropist's name,
-one that doesn't already exist because user names must be unique.
-
-Is there a maximum donation allowed? Minimum?
+Is there a maximum donation allowed? Minimum? Answer: $1 to $10,000.
 
 Does the amount have to be in US dollars? Yes.
 
-Are there restrictions on the donor's name? Should it be unique? What's the maximum length?
-
-Does the credit card require billing address? Perhaps we should get the donor's address.
+Does the credit card require billing address? Perhaps we should get the donor's address? If the client wants it.
 
 Does the donor get an e-mail confirmation of their donation? If so we need email address.
 
@@ -75,7 +64,11 @@ Tests
  + A first name must be provided and be between 1 and 256 characters long.
  + A last name must be provided and be between 1 and 256 characters long.
  + A donation amount must be provided and be between $1 and $10,000.
- + The user must be able to enter credit card information
+ + The user must be able to enter credit card information and payment must be successful.
+ + If the user is logged in the name should be pre-filled.
+ + An un-logged-in user should be prompted to log in.
+ + Email is sent upon successful donation. Receipt and thanks.
+ + 
 
 # Installation Notes
 
@@ -288,3 +281,11 @@ Wrong turn ends here.
    
    - In adding data to the database, this page was particularly helpful. http://valuebound.com/resources/blog/how-to-create-custom-form-crud-create-delete-update-operations-drupal-8
    
+   - Looked at having a combo-box for choosing the amount or typing it in, but there is no production-ready combo-box
+   available. There is one drupal/combo_box, but it's alpha and has not been updated in six years.
+   
+   - I didn't get to add any unit tests.
+   
+   - The time has come to stop tweaking and fixing and turn this in. I was in the middle of saving to the database and
+   had two different methods I was pursuing. One looks more D8-like and I was leaning toward it, so it is not commented
+   out.
