@@ -55,6 +55,28 @@ Does the donor get an e-mail confirmation of their donation? If so we need email
 
 Couldn't we fill in the user's name for them if they're logged in?
 
+Database schema: The database should store a table called Donation
+ + Key int
+ + FirstName varchar 128
+ + LastName varchar 128
+ + Amount int
+ + StripeToken varchar 256
+ + TransactionTime datetime
+ + UserID int (foreign key)
+
+There's a tool I like called Pencil. I make wire frames with it. See file nonprofitdonation.ep.
+
+Non-functional requirements:
+ + Able to support 1,000 concurrent users
+ + Security of personally identifiable information, using https, not storing credit card information.
+ + Able to reuse in other non-profit web sites
+
+Tests
+ + A first name must be provided and be between 1 and 256 characters long.
+ + A last name must be provided and be between 1 and 256 characters long.
+ + A donation amount must be provided and be between $1 and $10,000.
+ + The user must be able to enter credit card information
+
 # Installation Notes
 
  - Started a repository https://github.com/rjacobsen0/NonprofitDonationForm.git for this work. I've been using SVN,
@@ -170,15 +192,17 @@ Wrong turn ends here.
   ice for a while.
       + composer require drupal/stripe
   
-  - Now I want to add javascript of my own, plus the javascript from stripe. Found documentation:
+  - Now I want to add javascript of my own, plus the javascript from stripe. Found documentation, the last on this list
+  was the most useful:
     + https://www.drupal.org/docs/8/creating-custom-modules/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-module
     + https://www.drupal.org/forum/support/module-development-and-code-questions/2016-08-08/adding-js-to-the-block-through-module
     + https://drupal.stackexchange.com/questions/223260/whats-the-correct-way-to-include-javascript-dependencies-into-modules
     + https://www.drupal.org/node/2605130
     + https://atendesigngroup.com/blog/mastering-drupal-8%E2%80%99s-libraries-api
-  - It's not cool to pull the stipe.js file into this module because it prevents independent upgrades and is against
-  the Drupal licensing/contrib guidelines regarding third party code, so I will include it from it's current location
-  if possible. Working on that now.
+    
+  - It's not cool to pull the stipe.js file into this module (nonprofit_donation_form) because it prevents independent
+  upgrades and is against the Drupal licensing/contrib guidelines regarding third party code, so I will include it from
+  it's current location if possible. Working on that now.
   
   - I'm backing off and starting over with a fresh install of stripe. I'm carefully going over each dependency. One
   that I missed before is that stripe requires <script src="https://js.stripe.com/v3/"></script> to be included
@@ -188,5 +212,79 @@ Wrong turn ends here.
   - Still getting script errors. Tried a twig template with {{ attach_library('drupal/stripe') }} in it. Still no
   luck.
   
-  - I installed drupal/libraries using composer. Not sure it's appropriate for D8. Now I have to learn how to use it.
+  - Still getting php errors about missing libraries and modules when I add a use statement.
   
+  - I installed drupal/libraries using composer. Not sure it's appropriate for D8. And it looks like another wrong turn.
+  Uninstalling.
+  
+  - Turns out I had a bad directory setting in phpStorm. <ctrl><alt>s on the directories tab was set to
+  nonprofit_donation_form directory and needed to be set to the drupal root directory. Now PhpStorm can find
+  libraries and modules and will no longer give me error messages about missing libraries.
+    
+  - The reason stripe is not working yet is configuration. I'm getting a console error about trying to call stripe
+  with an empty string as the ApiKey. So I found a file in the stripe module config/install/stripe.settings.yml and I
+  modified it to include the keys, then I uninstalled and re-installed stripe. That fixed the problem, but it is not a
+  good solution because as soon as you update the stripe module those settings will disappear. I am looking for a better
+  solution now. I think it will involve settings.php or adding data to the database in settings. The criteria should be
+    + the private key should not appear in github and
+    + upgrades should be easy and not require re-entering the keys.
+  
+  - I'll add ApiKeys for stripe to the settings.php. This documentation is helpful. https://www.drupal.org/docs/8/api/configuration-api/configuration-override-system
+   where it says "Providing overrides from modules". Actually it looks like settings.php is not the right place. Instead
+   I'll set them on http://localhost/drupal/admin/config/stripe. Curiosity got me to read up on where config information
+   is stored. 
+   
+   - If this were a live site I would get a certificate and use https. This page is helpful https://www.drupal.org/https-information
+   We are getting a console message: "You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS."
+   
+   - At this point I need a debugger but I don't have one. I took a break to install Xdebug, but it's not
+   working yet.
+   
+   - I'm getting two warnings and an error in the console.
+     + Unrecognized token creation parameter parameter: first_name is not a recognized parameter. This may cause issues
+     with your integration in the future.
+     + Unrecognized token creation parameter parameter: last_name is not a recognized parameter. This may cause issues
+     with your integration in the future.
+     + Error: POST http://localhost/drupal/nonprofit_donation_form 500 (500 Service unavailable (with message))
+     
+   - I played with ajax validation and decided against it because every time one of the fields was validated it cleared
+   out the credit card information. This is a security vs. efficiency tradeoff. The credit card info is cleared for
+   security. But we really don't want to annoy the users.
+   ```php
+        $form['first'] = [
+            '#type' => 'textfield',
+            '#title' => $this->t('First name'),
+            '#prefix' => '<div id="user-first-name-result">',
+            '#suffix' => '</div>',
+            '#required' => TRUE,
+            '#ajax' => [
+                'callback' => '::checkUserFirstNameValidation',
+                'effect' => 'fade',
+                'event' => 'change',
+                'progress' => [
+                    'type' => 'throbber',
+                    'message' => 'ajax message here',
+                ],
+             ],
+        ];
+```
+   
+   ```php
+       public function checkUserFirstNameValidation(array $form, FormStateInterface $form_state)
+       {
+           $ajax_response = new AjaxResponse();
+   
+           // Check if User or email exists or not
+           if (strlen($form_state->getValue(first)) > 128 ) {
+               $text = 'First name must not be longer than 128 characters.';
+          } else {
+            $text = '';
+          }
+          $ajax_response->addCommand(new HtmlCommand('#user-first-name-result', $text));
+          return $ajax_response;
+       }
+
+   ```
+   
+   - In adding data to the database, this page was particularly helpful. http://valuebound.com/resources/blog/how-to-create-custom-form-crud-create-delete-update-operations-drupal-8
+   
