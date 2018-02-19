@@ -177,7 +177,8 @@ Wrong turn ends here.
   it would be one dependancy after another but two (Webform and Contribute) is not too bad. While this looks
   promising it is un-usable for now. Needs to be documented. Rolling back.
 
-  - I'm having more success with Stripe's https://stripe.com/docs/quickstart guide on the frontend.
+  - I'm having more success with Stripe's https://stripe.com/docs/quickstart guide on the frontend. But, I found out
+  later, it's also not the right documentation for Drupal.
   
   - I added code for the server-side to get the payment and I'm getting errors. Seems that the Stripe library
   is multiply defined or not defined. Can't resolve the needed symbols like Stripe\Stripe::setApiKey() and
@@ -208,7 +209,7 @@ Wrong turn ends here.
   - Still getting php errors about missing libraries and modules when I add a use statement.
   
   - I installed drupal/libraries using composer. Not sure it's appropriate for D8. And it looks like another wrong turn.
-  Uninstalling.
+  Uninstalling. Actually, I found out later, it was good to installusing composer, but I had multiple installations.
   
   - Turns out I had a bad directory setting in phpStorm. <ctrl><alt>s on the directories tab was set to
   nonprofit_donation_form directory and needed to be set to the drupal root directory. Now PhpStorm can find
@@ -225,7 +226,7 @@ Wrong turn ends here.
   - I'll add ApiKeys for stripe to the settings.php. This documentation is helpful. https://www.drupal.org/docs/8/api/configuration-api/configuration-override-system
    where it says "Providing overrides from modules". Actually it looks like settings.php is not the right place. Instead
    I'll set them on http://localhost/drupal/admin/config/stripe. Curiosity got me to read up on where config information
-   is stored. 
+   is stored. Looks like it's all in the database https://www.drupal.org/node/2241059.
    
    - If this were a live site I would get a certificate and use https. This page is helpful https://www.drupal.org/https-information
    We are getting a console message: "You may test your Stripe.js integration over HTTP. However, live Stripe.js integrations must use HTTPS."
